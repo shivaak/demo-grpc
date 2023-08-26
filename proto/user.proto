@@ -1,0 +1,39 @@
+syntax = "proto3";
+option go_package = "github.com/shivaak/demo-grpc/gen";
+
+message UserData {
+  string id=1;
+  string name=2;
+  int32 age=3;
+  string city=4;
+  string country=5;
+}
+
+message CreateUserRequest {
+  UserData user=1;
+}
+
+message CreateUserResponse {
+  string userId=1;
+}
+
+message ListUserRequest {
+}
+
+message ListUserResponse {
+  repeated UserData userList=1;
+}
+
+message GetUserRequest {
+  string userId=1;
+}
+
+message GetUserResponse {
+  UserData user=1;
+}
+
+service UserManagement {
+  rpc Create(CreateUserRequest) returns (CreateUserResponse);
+  rpc List(ListUserRequest) returns (ListUserResponse);
+  rpc Get(GetUserRequest) returns (GetUserResponse);
+}

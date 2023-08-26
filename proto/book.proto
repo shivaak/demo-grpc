@@ -1,0 +1,29 @@
+syntax = "proto3";
+option go_package = "github.com/shivaak/demo-grpc/gen";
+
+message Book {
+  string id=1;
+  string title=2;
+  int32 count=3;
+}
+
+message EmptyRequest {
+
+}
+
+message ListBookResponse {
+  repeated Book bookList=1;
+}
+
+message CreateBookResponse {
+  string id=1;
+}
+
+message CreateBookRequest {
+  Book book=1;
+}
+
+service BookManagement {
+  rpc ListBooks(EmptyRequest) returns (ListBookResponse);
+  rpc CreateBook(CreateBookRequest) returns (CreateBookResponse);
+}
