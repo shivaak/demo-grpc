@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "demo-grpc_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/shivaak/demo-grpc",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//app",
+        "//handler",
+        "//proto:gen",
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_uber_go_fx//:fx",
+        "@org_uber_go_zap//:zap",
+    ],
+)
+
+go_binary(
+    name = "demo-grpc",
+    embed = [":demo-grpc_lib"],
+    visibility = ["//visibility:public"],
+)

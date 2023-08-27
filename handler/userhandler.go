@@ -3,8 +3,8 @@ package handler
 import (
 	"context"
 	"github.com/shivaak/demo-grpc/controller/user"
-	proto "github.com/shivaak/demo-grpc/gen"
 	"github.com/shivaak/demo-grpc/mapper"
+	proto "github.com/shivaak/demo-grpc/proto"
 )
 
 type UserHandler proto.UserManagementServer

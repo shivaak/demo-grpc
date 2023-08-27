@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "controller",
+    srcs = ["module.go"],
+    importpath = "github.com/shivaak/demo-grpc/controller",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//controller/book",
+        "//controller/user",
+        "@org_uber_go_fx//:fx",
+    ],
+)

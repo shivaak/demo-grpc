@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"github.com/shivaak/demo-grpc/app"
-	proto "github.com/shivaak/demo-grpc/gen"
 	"github.com/shivaak/demo-grpc/handler"
+	proto "github.com/shivaak/demo-grpc/proto/gen"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

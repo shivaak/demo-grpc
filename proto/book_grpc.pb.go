@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v4.23.4
-// source: book.proto
+// source: proto/book.proto
 
-package gen
+package proto
 
 import (
 	context "context"
@@ -142,5 +142,5 @@ var BookManagement_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "book.proto",
+	Metadata: "proto/book.proto",
 }

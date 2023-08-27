@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/shivaak/demo-grpc/gen";
+option go_package = "github.com/shivaak/demo-grpc/proto";
 
 message UserData {
   string id=1;

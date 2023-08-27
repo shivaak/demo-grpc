@@ -3,8 +3,8 @@ package handler
 import (
 	"context"
 	"github.com/shivaak/demo-grpc/controller/book"
-	proto "github.com/shivaak/demo-grpc/gen"
 	"github.com/shivaak/demo-grpc/mapper"
+	proto "github.com/shivaak/demo-grpc/proto"
 )
 
 type BookHandler proto.BookManagementServer

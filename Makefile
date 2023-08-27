@@ -1,11 +1,10 @@
 create:
 	protoc \
-	--proto_path=proto \
-    --go_out=gen \
+	 --go_out=. \
     --go_opt=paths=source_relative \
-    --go-grpc_out=gen \
+    --go-grpc_out=. \
     --go-grpc_opt=paths=source_relative \
     proto/*.proto
 
 clean:
-	rm gen/*.go
+	rm proto/*.pb.go

@@ -2,8 +2,8 @@ package mapper
 
 import (
 	"github.com/shivaak/demo-grpc/entity"
-	proto "github.com/shivaak/demo-grpc/gen"
 	"github.com/shivaak/demo-grpc/model"
+	proto "github.com/shivaak/demo-grpc/proto"
 )
 
 func BookToModel(b *entity.Book) *model.Book {

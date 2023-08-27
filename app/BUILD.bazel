@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "app",
+    srcs = ["app.go"],
+    importpath = "github.com/shivaak/demo-grpc/app",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//controller",
+        "//handler",
+        "//loggerfx",
+        "//repository",
+        "@org_uber_go_fx//:fx",
+    ],
+)
