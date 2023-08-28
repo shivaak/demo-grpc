@@ -3,26 +3,31 @@ package main
 import (
 	"context"
 	"github.com/shivaak/demo-grpc/app"
-	"github.com/shivaak/demo-grpc/handler"
-	proto "github.com/shivaak/demo-grpc/proto/gen"
+	"github.com/shivaak/demo-grpc/handler/book"
+	"github.com/shivaak/demo-grpc/handler/user"
+	"github.com/shivaak/demo-grpc/proto"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"net"
 )
 
-func main() {
-	app := fx.New(
+func opts() fx.Option {
+	return fx.Options(
 		app.Module,
 		fx.Invoke(registerHooks),
 	)
+}
+
+func main() {
+	app := fx.New(opts())
 	app.Run()
 }
 
 func registerHooks(lifecycle fx.Lifecycle,
 	logger *zap.SugaredLogger,
-	userHandler handler.UserHandler,
-	bookHandler handler.BookHandler) {
+	userHandler user.UserHandler,
+	bookHandler book.BookHandler) {
 	lifecycle.Append(
 		fx.Hook{
 			OnStart: func(context.Context) error {

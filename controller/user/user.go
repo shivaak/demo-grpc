@@ -5,7 +5,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/shivaak/demo-grpc/entity"
 	"github.com/shivaak/demo-grpc/mapper"
-	proto "github.com/shivaak/demo-grpc/proto"
+	"github.com/shivaak/demo-grpc/proto"
 	"github.com/shivaak/demo-grpc/repository/inmemory"
 )
 

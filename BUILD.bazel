@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
 
 go_library(
     name = "demo-grpc_lib",
@@ -7,8 +7,9 @@ go_library(
     visibility = ["//visibility:private"],
     deps = [
         "//app",
-        "//handler",
-        "//proto:gen",
+        "//handler/book",
+        "//handler/user",
+        "//proto",
         "@org_golang_google_grpc//:go_default_library",
         "@org_uber_go_fx//:fx",
         "@org_uber_go_zap//:zap",
@@ -19,4 +20,14 @@ go_binary(
     name = "demo-grpc",
     embed = [":demo-grpc_lib"],
     visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "demo-grpc_test",
+    srcs = ["main_test.go"],
+    embed = [":demo-grpc_lib"],
+    deps = [
+        "@com_github_stretchr_testify//assert",
+        "@org_uber_go_fx//:fx",
+    ],
 )

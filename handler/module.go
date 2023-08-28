@@ -1,8 +1,12 @@
 package handler
 
-import "go.uber.org/fx"
+import (
+	"github.com/shivaak/demo-grpc/handler/book"
+	"github.com/shivaak/demo-grpc/handler/user"
+	"go.uber.org/fx"
+)
 
 var Module = fx.Provide(
-	NewUserHandler,
-	NewBookHandler,
+	user.NewUserHandler,
+	book.NewBookHandler,
 )
